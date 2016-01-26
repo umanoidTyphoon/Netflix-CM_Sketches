@@ -9,7 +9,8 @@ class SketchCreatorFiller:
         self.connection_cursor = self.connection.cursor()
 
     def fill_sketch(self, customer_id, cm_sketch):
-        query = "SELECT movieid, rating FROM training_set WHERE customerid = " + str(customer_id)
+        # query = "SELECT movieid, rating FROM training_set WHERE customerid = " + str(customer_id)
+        query = "SELECT movieid, rating FROM reduced_training_set WHERE customerid = " + str(customer_id)
 
         self.connection_cursor.execute(query)
         for row in self.connection_cursor:
@@ -33,7 +34,8 @@ class SketchCreatorFiller:
 
     def compute_l1_norm(self, customer_id):
         l1_norm = 0
-        query   = "SELECT rating FROM training_set WHERE customerid = " + str(customer_id)
+        # query   = "SELECT rating FROM training_set WHERE customerid = " + str(customer_id)
+        query   = "SELECT rating FROM reduced_training_set WHERE customerid = " + str(customer_id)
 
         self.connection_cursor.execute(query)
         for row in self.connection_cursor:
@@ -43,7 +45,8 @@ class SketchCreatorFiller:
         return l1_norm
 
     def compute_sketch_window(self, customer_id):
-        query = "SELECT COUNT(rating) FROM training_set WHERE customerid = " + str(customer_id)
+        # query = "SELECT COUNT(rating) FROM training_set WHERE customerid = " + str(customer_id)
+        query = "SELECT COUNT(rating) FROM reduced_training_set WHERE customerid = " + str(customer_id)
         self.connection_cursor.execute(query)
         rating_count = self.connection_cursor.fetchone()[0]
 
