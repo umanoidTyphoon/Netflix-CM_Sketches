@@ -19,8 +19,7 @@ if __name__ == '__main__':
 
         for customer_id in user_ids:
             cm_sketch = netflix_sketch_creator_filler.create_sketch(customer_id)
-            cm_sketch = netflix_sketch_creator_filler.fill_sketch(customer_id, cm_sketch)
+            cm_sketch = netflix_sketch_creator_filler.fill_sketch_by_movie(customer_id, cm_sketch)
 
             init.util.serialize_sketch(str(customer_id) + ".p", cm_sketch)
-
-            break
+            #TODO Last user processed: 999919.
