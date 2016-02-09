@@ -1,0 +1,4 @@
+__author__ = 'umanoidTyphoon'
+
+PUBLISHED_RECORDS_RATIO     = 0.125
+TOTAL_NETFLIX_DATASET_USERS = 480189

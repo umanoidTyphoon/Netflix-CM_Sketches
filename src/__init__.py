@@ -11,3 +11,6 @@ import random
 import sys
 import time
 import util
+
+PUBLISHED_RECORDS_RATIO     = 0.125
+TOTAL_NETFLIX_DATASET_USERS = 480189
